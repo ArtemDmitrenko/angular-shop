@@ -1,0 +1,16 @@
+<mat-toolbar color="primary" class="header">
+  <span>Logo</span>
+  <div *ngIf="isLoggedUser" class="header__menu">
+    <span *ngIf="isLoggedUser" class="header__user-name"
+      >{{ currentUser.firstName }} {{ currentUser.lastName }}</span
+    >
+    <button mat-button [matMenuTriggerFor]="menu" class="header__menu-button">
+      <img [src]="currentUser.image" alt="logo" class="header__logo" />
+    </button>
+    <mat-menu #menu="matMenu">
+      <a routerLink="/user" mat-menu-item>Profile</a>
+      <a routerLink="/products" mat-menu-item>Products</a>
+      <button mat-menu-item (click)="handleLogOutClick()">Log out</button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

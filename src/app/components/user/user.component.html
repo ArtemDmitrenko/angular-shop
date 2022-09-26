@@ -1,0 +1,23 @@
+<div class="user">
+  <h1 class="user__title">Profile</h1>
+
+  <mat-spinner *ngIf="!isLoaded" class="user__spinner"></mat-spinner>
+
+  <mat-list *ngIf="isLoaded" role="list">
+    <mat-list-item role="listitem"
+      >Age: {{ currentUserData.age }}</mat-list-item
+    >
+    <mat-list-item role="listitem"
+      >Gender: {{ currentUserData.gender }}</mat-list-item
+    >
+    <mat-list-item role="listitem"
+      >Email: {{ currentUserData.email }}</mat-list-item
+    >
+    <mat-list-item role="listitem"
+      >Age: {{ currentUserData.age }}</mat-list-item
+    >
+    <mat-list-item role="listitem"
+      >Company: {{ currentUserData.company.name }}</mat-list-item
+    >
+  </mat-list>
+</div>

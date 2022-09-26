@@ -1,0 +1,11 @@
+<div class="products">
+  <h1 class="products__title">Products</h1>
+
+  <ul class="products__list">
+    <mat-spinner *ngIf="!isLoaded" class="products__spinner"></mat-spinner>
+
+    <li *ngFor="let item of products">
+      <a [routerLink]="item.id"><app-card [cardData]="item"></app-card></a>
+    </li>
+  </ul>
+</div>

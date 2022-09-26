@@ -1,0 +1,40 @@
+<div class="product">
+  <h1 class="product__title">Product</h1>
+  <div class="product__container">
+    <mat-spinner *ngIf="!isLoaded" class="product__spinner"></mat-spinner>
+    <div *ngIf="isLoaded">
+      <mat-list>
+        <mat-list-item
+          >Category: <b>{{ product.category }}</b></mat-list-item
+        >
+        <mat-list-item
+          >Brand: <b>{{ product.brand }}</b></mat-list-item
+        >
+        <mat-list-item
+          >Title: <b>{{ product.title }}</b></mat-list-item
+        >
+        <mat-list-item
+          >Price: <b>{{ product.price }}</b></mat-list-item
+        >
+        <mat-list-item
+          >Rating: <b>{{ product.rating }}</b></mat-list-item
+        >
+        <mat-list-item
+          ><b>{{ product.description }}</b></mat-list-item
+        >
+      </mat-list>
+    </div>
+    <div *ngIf="isLoaded" class="product__images">
+      <carousel
+        [cellsToShow]="1"
+        [height]="300"
+        [arrowsOutside]="true"
+        class="product__carousel"
+      >
+        <div *ngFor="let path of product.images" class="carousel-cell">
+          <img class="carousel-cell" [src]="path" />
+        </div>
+      </carousel>
+    </div>
+  </div>
+</div>

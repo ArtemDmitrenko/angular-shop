@@ -1,0 +1,63 @@
+<div class="login">
+  <h4 class="login__title">Log In</h4>
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+    novalidate
+    class="login__form"
+  >
+    <mat-form-field class="login__form-field">
+      <input matInput placeholder="Username" formControlName="username" />
+      <mat-error
+        *ngIf="
+          !loginForm.get('username')?.errors?.required &&
+          loginForm.get('username')?.errors?.pattern
+        "
+      >
+        Please enter a valid username
+      </mat-error>
+      <mat-error
+        *ngIf="
+          loginForm.get('username')?.invalid &&
+          (loginForm.get('username')?.dirty ||
+            loginForm.get('username')?.touched) &&
+          loginForm.get('username')?.errors?.required
+        "
+      >
+        Username is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="login__form-field">
+      <input
+        matInput
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <mat-error *ngIf="!loginForm.get('password')?.errors?.required">
+        Password length must be greater than or equal to 6 and password must
+        contain one or more uppercase , lowercase and numeric characters
+      </mat-error>
+      <mat-error
+        *ngIf="
+          loginForm.get('password')?.invalid &&
+          (loginForm.get('password')?.dirty ||
+            loginForm.get('password')?.touched) &&
+          loginForm.get('password')?.errors?.required
+        "
+      >
+        Password is required
+      </mat-error>
+    </mat-form-field>
+    <div class="login__button">
+      <button
+        [disabled]="!loginForm.valid"
+        mat-raised-button
+        color="primary"
+        mat-button
+      >
+        Log In
+      </button>
+    </div>
+  </form>
+</div>

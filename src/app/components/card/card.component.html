@@ -1,0 +1,19 @@
+<mat-card class="card">
+  <mat-card-header class="card__header">
+    <mat-card-title>{{ cardData.title }}</mat-card-title>
+    <mat-card-subtitle
+      >Price: {{ cardData.price | currency }}</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-content class="card__image-container">
+    <img
+      mat-card-image
+      [src]="cardData.thumbnail"
+      [alt]="cardData.title"
+      class="card__image"
+    />
+  </mat-card-content>
+  <mat-card-footer class="card__rating">
+    Rating: <strong>{{ cardData.rating }}</strong>
+  </mat-card-footer>
+</mat-card>
