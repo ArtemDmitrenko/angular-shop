@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { StorageService } from '../../services/storage.service';
-import { ProductsService } from '../../services/product.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { IProduct } from '../../models/product';
 
-// import { IProduct } from 'src/app/models/product';
+import { IProduct } from '../../models/product';
+import { StorageService } from '../../services/storage.service';
+import { ProductsService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product',
@@ -18,6 +17,7 @@ export class ProductComponent implements OnInit {
   product: IProduct;
   errorText: string;
   isLoaded: boolean = false;
+  title: string = 'product';
 
   constructor(
     private storageService: StorageService,
@@ -33,21 +33,13 @@ export class ProductComponent implements OnInit {
     const currentUser = this.storageService.getUser();
     const { token } = currentUser;
     this.productsService.getProduct(this.id, token).subscribe({
-      next: (data: any) => {
-        console.log('product', data);
+      next: (data: IProduct) => {
         this.product = data;
         this.isLoaded = true;
       },
       error: (err: any) => {
-        console.log(err);
-        if (err.error) {
-          this.errorText = JSON.parse(err.error).message;
-        } else {
-          this.errorText = 'Error with status: ' + err.status;
-        }
+        this.errorText = err.error.message;
       },
     });
-
-    // this.isLoggedUser = this.storageService.isLoggedIn();
   }
 }

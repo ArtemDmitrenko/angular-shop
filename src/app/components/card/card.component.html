@@ -2,7 +2,8 @@
   <mat-card-header class="card__header">
     <mat-card-title>{{ cardData.title }}</mat-card-title>
     <mat-card-subtitle
-      >Price: {{ cardData.price | currency }}</mat-card-subtitle
+      >Price:
+      {{ cardData.price | currency: "USD":"symbol":"1.0" }}</mat-card-subtitle
     >
   </mat-card-header>
   <mat-card-content class="card__image-container">
@@ -14,6 +15,12 @@
     />
   </mat-card-content>
   <mat-card-footer class="card__rating">
-    Rating: <strong>{{ cardData.rating }}</strong>
+    <div class="card__stars">
+      <ngx-star-rating
+        [ngModel]="roundNumber(cardData.rating)"
+        [disabled]="true"
+      ></ngx-star-rating>
+    </div>
+    <div>Rating: {{ cardData.rating }}</div>
   </mat-card-footer>
 </mat-card>

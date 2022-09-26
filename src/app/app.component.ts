@@ -1,13 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-// import { IProduct } from './models/products';
-import { StorageService } from './services/storage.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  // title = 'angular-products';
-  // products: IProduct[] = data;
-}
+export class AppComponent {}

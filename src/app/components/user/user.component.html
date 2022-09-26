@@ -1,8 +1,6 @@
 <div class="user">
-  <h1 class="user__title">Profile</h1>
-
+  <h1 class="user__title">{{ title | uppercase }}</h1>
   <mat-spinner *ngIf="!isLoaded" class="user__spinner"></mat-spinner>
-
   <mat-list *ngIf="isLoaded" role="list">
     <mat-list-item role="listitem"
       >Age: {{ currentUserData.age }}</mat-list-item

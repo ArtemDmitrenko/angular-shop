@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 
 import { ProductsComponent } from './components/products/products.component';
 import { LoginComponent } from './components/login/login.component';
@@ -48,6 +49,7 @@ import { ProductComponent } from './components/product/product.component';
     MatProgressSpinnerModule,
     MatCardModule,
     IvyCarouselModule,
+    NgxStarRatingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

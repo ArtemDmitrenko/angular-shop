@@ -1,5 +1,5 @@
 <div class="product">
-  <h1 class="product__title">Product</h1>
+  <h1 class="product__title">{{ title | uppercase }}</h1>
   <div class="product__container">
     <mat-spinner *ngIf="!isLoaded" class="product__spinner"></mat-spinner>
     <div *ngIf="isLoaded">
@@ -14,7 +14,9 @@
           >Title: <b>{{ product.title }}</b></mat-list-item
         >
         <mat-list-item
-          >Price: <b>{{ product.price }}</b></mat-list-item
+          >Price: <b>{{
+            product.price | currency: "USD":"symbol":"1.0"
+          }}</b></mat-list-item
         >
         <mat-list-item
           >Rating: <b>{{ product.rating }}</b></mat-list-item

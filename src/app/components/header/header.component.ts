@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { StorageService } from '../../services/storage.service';
 import { ContextService } from '../../services/context.service';
+import { IUser } from 'src/app/models/user';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import { ContextService } from '../../services/context.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  currentUser: any;
+  currentUser: IUser;
   isLoggedUser: boolean;
   constructor(
     private storageService: StorageService,
